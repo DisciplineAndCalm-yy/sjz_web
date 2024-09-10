@@ -1,0 +1,73 @@
+.condition-item {
+  display: flex;
+  font-size: 16px;
+  font-family: Microsoft YaHei;
+  padding: 8px 0 4px;
+  .label {
+    height: 24px;
+    font-weight: 700;
+    color: #333;
+    line-height: 24px;
+  }
+
+  .value {
+    flex: 1;
+    display: flex;
+    .nav-list {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      height: 34px;
+      overflow: hidden;
+
+      .nav {
+        display: inline-block;
+        margin: 0 10px 10px;
+        font-weight: 400;
+        color: #333;
+        cursor: pointer;
+
+        &.active,
+        &:hover {
+          font-weight: 700;
+          color: #2386fe !important;
+        }
+      }
+
+      .all {
+        font-weight: 700;
+      }
+    }
+
+    .showMore {
+      height: auto;
+      overflow: visible;
+    }
+
+    .more {
+      position: relative;
+      top: 1px;
+      display: flex;
+      align-items: center;
+      float: right;
+      color: #2386fe;
+      height: 24px;
+      font-weight: 700;
+      cursor: pointer;
+
+      .icon {
+        margin-left: 5px;
+        transition: transform 0.3s;
+      }
+      .icon.is-open {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .ant-select {
+    position: relative;
+    top: -4px;
+  }
+}

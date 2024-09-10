@@ -1,0 +1,93 @@
+import { type ComponentConfigModel } from '@coderlt/form-designer';
+import { SwitchEnum } from '../../enums/component'
+
+export const switchConfig: ComponentConfigModel = {
+  component: () => import('ant-design-vue/es/switch'),
+  defaultSchema: {
+    icon: 'epic-icon-kaiguan3',
+    input: true,
+    componentProps: {
+      checkedValue: SwitchEnum.OPEN,
+      unCheckedValue: SwitchEnum.CLOSE
+    },
+    rules: [{ type: 'string', trigger: ['change'], required: false, message: '' }],
+  },
+  config: {
+    attribute: [
+      {
+        label: '字段名',
+        type: 'input',
+        field: 'field',
+      },
+      {
+        label: '文字',
+        type: 'input',
+        field: 'label',
+      },
+      {
+        label: '默认值',
+        type: 'switch',
+        field: 'componentProps.defaultValue',
+      },
+      {
+        label: '选中时内容',
+        type: 'input',
+        field: 'componentProps.checkedChildren',
+        componentProps: {
+          placeholder: '请输入',
+        },
+      },
+      {
+        label: '非选中时内容',
+        type: 'input',
+        field: 'componentProps.unCheckedChildren',
+        componentProps: {
+          placeholder: '请输入',
+        },
+      },
+      {
+        label: '尺寸',
+        type: 'select',
+        componentProps: {
+          placeholder: '请选择',
+          allowClear: true,
+          options: [
+            {
+              label: 'default',
+              value: 'default',
+            },
+            {
+              label: 'small',
+              value: 'small',
+            },
+          ],
+        },
+        field: 'componentProps.size',
+      },
+      {
+        label: '禁用',
+        type: 'switch',
+        field: 'componentProps.disabled',
+      },
+      {
+        label: '隐藏',
+        type: 'switch',
+        field: 'componentProps.hidden',
+      },
+      {
+        label: '表单校验',
+        type: 'ERuleEditor',
+        layout: 'vertical',
+        field: 'rules',
+        describe: '校验规则需要配合表单使用',
+      },
+    ],
+    event: [
+      {
+        type: 'change',
+        describe: '值变化时',
+      },
+    ],
+  },
+  bindModel: 'checked',
+};
